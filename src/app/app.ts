@@ -1,5 +1,4 @@
 import { Component, signal } from '@angular/core';
-import { ArcgisMap } from './arcgis-map/arcgis-map';
 import { Router } from '@angular/router';
 
 @Component({
@@ -11,6 +10,7 @@ export class App {
   constructor(private router: Router) {}
 
   ngOnInit() {
+    console.log(' routing t MAP.....');
     this.router.navigate(['/map']); // Auto-redirect to map
   }
 }

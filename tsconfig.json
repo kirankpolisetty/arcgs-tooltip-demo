@@ -17,13 +17,14 @@
     "esModuleInterop": true,
     "baseUrl": "./",
     "moduleResolution": "Node16",
+    "allowSyntheticDefaultImports": true,
     "paths": {
       "@app/*": ["src/app/*"]
     },
-    "types": [],
+    "types": ["@arcgis/core"],
     "typeRoots": ["node_modules/@types"],
     "forceConsistentCasingInFileNames": true
-  },
+   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,

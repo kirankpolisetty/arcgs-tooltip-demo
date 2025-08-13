@@ -1,33 +1,24 @@
-import { Component, OnInit } from '@angular/core';
-import { loadModules } from 'esri-loader';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
+
+// @ts-ignore to silence VS Code errors
+import Map from '@arcgis/core/Map';
+// @ts-ignore
+import MapView from '@arcgis/core/views/MapView';
 
 @Component({
   selector: 'app-arcgis-map',
-  templateUrl: './arcgis-map.html',
-  styleUrl: './arcgis-map.css'
+  standalone: true,
+  template: '<div id="mapViewDiv" style="height:100vh; width:100%;"></div>',
+  styleUrls: ['./arcgis-map.css']
 })
-export class ArcgisMap implements OnInit{
-  async ngOnInit() {
-    await this.loadMap();
+export class ArcgisMap implements AfterViewInit {
+
+  constructor(){
+    console.log('in the contructor...');
   }
 
-  async loadMap() {
-    const [Map, MapView] = await loadModules([
-      'esri/Map',
-      'esri/views/MapView'
-    ]);
-
-    const map = new Map({
-      basemap: 'streets-navigation-vector'
-    });
-
-    new MapView({
-      container: 'viewDiv',
-      map: map,
-      center: [-118.244, 34.052],
-      zoom: 10
-    });
+ ngAfterViewInit() {
+    const map = new Map({ basemap: 'streets-navigation-vector' });
+    new MapView({ container: 'mapViewDiv', map, center: [-118.244, 34.052], zoom: 10 });
   }
-
-
 }
