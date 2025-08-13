@@ -1,12 +1,16 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { ArcgisMap } from './arcgis-map/arcgis-map';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App {
-  protected readonly title = signal('arcgs-tooltip-demo');
+  constructor(private router: Router) {}
+
+  ngOnInit() {
+    this.router.navigate(['/map']); // Auto-redirect to map
+  }
 }

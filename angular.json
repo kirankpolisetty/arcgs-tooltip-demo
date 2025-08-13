@@ -71,15 +71,20 @@
             "assets": [
               {
                 "glob": "**/*",
-                "input": "public"
+                "input": "node_modules/@arcgis/core/assets",
+                "output": "/assets/"
               }
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/@arcgis/core/assets/esri/themes/light/main.css"
             ]
           }
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "9178e03c-a9b4-48da-a8e0-8021b52d3039"
   }
 }

@@ -9,11 +9,20 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "skipLibCheck": true,
-    "isolatedModules": true,
     "experimentalDecorators": true,
     "importHelpers": true,
-    "target": "ES2022",
-    "module": "preserve"
+    "target": "es2022",
+    "module": "Node16", // Must match Node16 resolution
+    "lib": ["es2022", "dom"],
+    "esModuleInterop": true,
+    "baseUrl": "./",
+    "moduleResolution": "Node16",
+    "paths": {
+      "@app/*": ["src/app/*"]
+    },
+    "types": [],
+    "typeRoots": ["node_modules/@types"],
+    "forceConsistentCasingInFileNames": true
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
